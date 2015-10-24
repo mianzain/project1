@@ -1,0 +1,45 @@
+h1 {
+  font-weight: bold;
+  color: #91000A;
+  font-size: 70px;
+  font-family:Courier;
+}
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+    color: #91000A;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+    }
+body  {
+    background-image: url("image/foodimg.png");
+    background-size: cover;
+  
+}
