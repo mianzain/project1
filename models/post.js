@@ -1,13 +1,20 @@
 var mongoose = require("mongoose");
 var schema = mongoose.Schema;
-var commentSchema = new schema ({
- // user: type:Schema.types.objectId,ref:'user',
+
+var commentSchema = new schema({
+	name: String,
+	comments: String
+});
+
+var publishSchema = new schema ({
+ 
  platingAPIId: String,
  name: String, 
- body : String,
+ comments : [commentSchema],
  image_url: String,
  f2f_url: String
 });
+
 // fix naming conventions
-var comment = mongoose.model('comment', commentSchema);
-module.exports = comment;
+var publish = mongoose.model('publish', publishSchema);
+module.exports = publish;

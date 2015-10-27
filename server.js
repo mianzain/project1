@@ -65,22 +65,32 @@ app.get('/results', function (req, res){
 	});
 });
 
-app.post('/api/index/:_id/comments', function(req, res) {
+app.post('/api/foods/:id/comments', function(req, res) {
+	console.log("FOUND ROUTE");
+	console.log(req.params.id);
+	var comment = req.body;
+	db.Post.findById(req.params.id, function(err, post) {
+		post.comments.push(comment);
+		post.save();
+		res.json(post);
+	});
 
-	var comment = new db.Comment(req.body);
-	console.log("comment is: ", comment);
-  // find by id, using params from the route
-  db.post.findById(req.params._id, function(err, post) {
-  	if (err) { res.json(err);}
-    // add the comment to the comments
-    index.comments.push(comment);
-    // save the post
-    post.save();
-    console.log("comment is: ", comment);
-    console.log("comments are: ", comment.comments);
-    // send the comment we made back to the client to append to the page
-    res.json(comment);
-});
+	// var publish = new db.publish(req.body);
+	// // var id= req.params.id
+	// console.log("publish is: ", publish);
+ //    // find by id, using params from the route
+
+	// db.post.findById(req.params._id, function(err, post) {
+	//   	if (err) { res.json(err);}
+	//     // add the comment to the comments
+	//     index.publish.push(publish);
+	//     // save the post
+	//     post.save();
+	//     console.log("comment is: ", publish);
+	//     console.log("comments are: ", publish.publishs);
+	//     // send the comment we made back to the client to append to the page
+	//     res.json(publish);
+	// });
 });
 
 

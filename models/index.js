@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/posts');
+mongoose.connect('mongodb://localhost/foodish');
 
 // var db =mongoose.connection;
 // // db.on('error', console,error.bind(console,'connection error;'));
@@ -11,3 +11,4 @@ mongoose.connect('mongodb://localhost/posts');
 // });
 
 module.exports.Post = require('./post.js');
+// module.exports.Post = require('./comments.js');
