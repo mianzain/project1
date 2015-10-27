@@ -36,30 +36,54 @@ app.post('/index', function(req, res) {
 	    // This API sends the data as a string so we need to parse it. This is not typical.
 	    foods = JSON.parse(response.body);
 	    console.log('foods from post', foods);
-	    // save API data in DB
-	    // for each recipes in the JSON
-	    foods.recipes.forEach(function(recipe) {
-	    	// create a post in the database
-		    db.Post.create({
-		    	platingAPIId: recipe.recipe_id,
-		    	name: recipe.title,
-		    	image_url: recipe.image_url,
-		    	f2f_url: recipe.f2f_url
-		    }, function(err, post) {
-		    	// console.log the created object
-		    	console.log("created new post: ", post);
-		    });
-		});
-	    	// res.render('index', {foods: foods});
-	    	res.redirect('/results');
-	    } else {
-	    	console.log("error");
-	    }
+		    // save API data in DB
+
+		    // for each recipes in the JSON
+		    foods.recipes.forEach(function(recipe) {
+		    	// create a post in the database
+		    	
+		    	// Something like this:
+		    	var post = new db.Post({
+		    		platingAPIId: recipe.recipe_id, // this is being validated for uniqueness in the post.js file
+		    		name: recipe.title,
+		    		image_url: recipe.image_url,
+		    		f2f_url: recipe.f2f_url
+		    	});
+
+		    	post.save(function(err, post) {
+		    		if (err) {
+		    			console.log(err);
+		    		} else {
+		    			console.log("This post saved: ", post);
+		    		}
+		    	});
+		    	
+			//     db.Post.create({
+			//     	platingAPIId: recipe.recipe_id, // check this before creating?
+			//     	name: recipe.title,
+			//     	image_url: recipe.image_url,
+			//     	f2f_url: recipe.f2f_url
+			//     }, function(err, post) {
+			//     	// console.log the created object
+			//     	console.log("created new post: ", post);
+			//     });
+			// });
+		    	// res.render('index', {foods: foods});
+		    }); 
+
+		    res.redirect('/results');
+		    // res.render('index', {foods: foods});
+		} else {
+			res.send("error");
+		}
 	});
 });
 
 app.get('/results', function (req, res){
+	// find all the foods
 	db.Post.find({}, function (err, foods){
+	// this shows only the foods that have comments (comments from your database)
+	// db.Post.find({ comments: {$not: {$size: 0}} }, function (err, foods){
 		console.log(' the foods contain :', foods);
 		res.render('index', {foods: foods });
 	});

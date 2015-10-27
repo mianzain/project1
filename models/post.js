@@ -8,11 +8,12 @@ var commentSchema = new schema({
 
 var publishSchema = new schema ({
  
- platingAPIId: String,
+ platingAPIId: { type: String, unique: true }, // will prevent multiple occurences of foods with same recipe ID
  name: String, 
  comments : [commentSchema],
  image_url: String,
- f2f_url: String
+ f2f_url: String,
+
 });
 
 // fix naming conventions
