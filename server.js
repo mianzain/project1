@@ -25,7 +25,7 @@ app.use("/static", express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function(req, res) {
-	res.render('index1', {foods: foods});
+	res.render('index1');
 });
 
 app.post('/index', function(req, res) {
