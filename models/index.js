@@ -1,7 +1,10 @@
 var mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/foodish');
+mongoose.connect(
+	process.env.MONGOLAB_URI ||
+  	process.env.MONGOHQ_URL ||
+	'mongodb://localhost/foodish');
 
 // var db =mongoose.connection;
 // // db.on('error', console,error.bind(console,'connection error;'));
