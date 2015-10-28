@@ -17,7 +17,8 @@ $(document).ready(function(){
 			.success(function (data) {
 				var name = data.comments[data.comments.length - 1].name;
 				var comment = data.comments[data.comments.length - 1].comments;
-				$("#"+data._id).append("<li>"+name+" "+comment+"</li>");
+				var html = "<li><span class='foodName'>" + name + "</span><span class='foodComment'>" + comment + "</span><li>"
+				$("#"+data._id).append(html);
 			})
 			.error(function (data) {
 				console.log(data);

@@ -26,3 +26,8 @@ body {
 }
 
 .red{ color:red;}
+
+li { list-style-type: none; }
+
+.foodName { color: red;}
+.foodComment { color: blue;}

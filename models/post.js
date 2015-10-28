@@ -2,7 +2,19 @@ var mongoose = require("mongoose");
 var schema = mongoose.Schema;
 
 var commentSchema = new schema({
-	name: String,
+	name: {
+		type: String, 
+		validate: [function(name) {
+		return name.length >=2;
+	},
+	'name is to small'
+	]
+
+	},
+
+
+
+		
 	comments: String
 });
 
