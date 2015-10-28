@@ -13,17 +13,16 @@ margin-left: auto;
     font-family:Courier;
 font-weight: bold;
 }	
-	   
-}
+	 
+
 body {
     background-color: ;
 }
 #button1 {
   font-family: verdana;
   margin-right: auto;
-
     width: 4.5em;
-    font-size: 13px;
-
-  
+    font-size: 13px;  
 }
+
+.red{ color:red;}

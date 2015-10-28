@@ -14,6 +14,7 @@ var FOOD_API_KEY = process.env.FOOD_API_KEY;
 console.log(FOOD_API_KEY);
 
 var request = require('request');
+var filterInput;
 var foods;
 
 // CONFIG //
@@ -30,8 +31,10 @@ app.get('/', function(req, res) {
 
 app.post('/index', function(req, res) {
 	//console.log("search storage: ", req.body)
+	filterInput = req.body.storage;
 	request('http://food2fork.com/api/search?key='+FOOD_API_KEY+'&q='+ req.body.storage, function (error, response, body) {
 		//console.log('the response from the api is  ', response )
+		
 		if (!error && response.statusCode == 200) {
 	    // This API sends the data as a string so we need to parse it. This is not typical.
 	    foods = JSON.parse(response.body);
@@ -47,7 +50,8 @@ app.post('/index', function(req, res) {
 		    		platingAPIId: recipe.recipe_id, // this is being validated for uniqueness in the post.js file
 		    		name: recipe.title,
 		    		image_url: recipe.image_url,
-		    		f2f_url: recipe.f2f_url
+		    		f2f_url: recipe.f2f_url,
+		    		tag: req.body.storage
 		    	});
 
 		    	post.save(function(err, post) {
@@ -81,9 +85,12 @@ app.post('/index', function(req, res) {
 
 app.get('/results', function (req, res){
 	// find all the foods
-	db.Post.find({}, function (err, foods){
+	db.Post.find({"tag": filterInput}, function (err, foods){
+		// need to get the searchTerm from somewhere... maybe the query params?
+	// db.Post.find({ searchTerm: whatever the term is }, function(err, foods) {
 	// this shows only the foods that have comments (comments from your database)
 	// db.Post.find({ comments: {$not: {$size: 0}} }, function (err, foods){
+
 		console.log(' the foods contain :', foods);
 		res.render('index', {foods: foods });
 	});

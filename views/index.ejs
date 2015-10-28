@@ -17,13 +17,15 @@
   <!-- API Key -->
   <link rel="stylesheet" type="text/css" href="/static/css/main.css">
   <script src="/static/js/app.js"></script>
+  <script src="/static/js/search.js"></script>
+
 </head>
 <body>
   <div id="page-wrapper" class="container">
     <header class="page-header">
       <h1>Foodish</h1>
     </header>
-    <div class="row">
+    <div class="row" id="searchResults">
       <!-- code here -->
       <% for(var i= foods.length-1; i >= 0; i--) { %>
         <div class="col-sm-6 col-md-6">
@@ -50,8 +52,8 @@
               <ul id="<%= foods[i]._id%>"> 
                <% for(var z=0; z< foods[i].comments.length; z++) {  %>
                   <li>
-                    <%= foods[i].comments[z].name %>
-                      <%= foods[i].comments[z].comments %>
+                      <span id="foodName"><%= foods[i].comments[z].name %></span>
+                      <span id="foodComment"><%= foods[i].comments[z].comments %></span>
                   </li>
                <% } %>
               </ul>
