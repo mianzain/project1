@@ -29,7 +29,11 @@ body {
 
 li { list-style-type: none; }
 
-.foodName { color: blue;}
+.foodName { 
+  color: blue;
+  font-weight: bold;
+  font-family: garamond
+}
 .foodComment { color: black;
-
+font-family:times 
 }

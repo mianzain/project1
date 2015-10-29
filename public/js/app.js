@@ -25,10 +25,10 @@ $(document).ready(function(){
 			});
 	});
 
-$('#buttonSearch').click(function(){
-	userInput = $('#storage').val();
-	localStorage.setItem('userInput', userInput);
-});
+// $('#buttonSearch').click(function(){
+// 	userInput = $('#storage').val();
+// 	localStorage.setItem('userInput', userInput);
+// });
 
 
 	// var foodResults = $('div#searchResults');

@@ -43,9 +43,9 @@ app.post('/index', function(req, res) {
 
 		    // for each recipes in the JSON
 		    foods.recipes.forEach(function(recipe) {
-		    	// create a post in the database
+		    	//  post in the database
 		    	
-		    	// Something like this:
+		  
 		    	var post = new db.Post({
 		    		platingAPIId: recipe.recipe_id, // this is being validated for uniqueness in the post.js file
 		    		name: recipe.title,
