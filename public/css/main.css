@@ -29,5 +29,7 @@ body {
 
 li { list-style-type: none; }
 
-.foodName { color: red;}
-.foodComment { color: blue;}
+.foodName { color: blue;}
+.foodComment { color: black;
+
+}

@@ -23,14 +23,14 @@
 <body>
   <div id="page-wrapper" class="container">
     <header class="page-header">
-      <h1>Foodish</h1>
+      <h1><a href="/">Foodish</a></h1>
     </header>
     <div class="row" id="searchResults">
       <!-- code here -->
       <% for(var i= foods.length-1; i >= 0; i--) { %>
         <div class="col-sm-6 col-md-6">
           <div class="thumbnail">
-           <h3><%=foods[i].name %></h3>
+           <h3><a href="<%= foods[i].f2f_url %>"><%=foods[i].name%></a></h3>
             <img src="<%=foods[i].image_url%>">
             <div class="caption">
               
@@ -38,17 +38,17 @@
               <div class="form-group">
                 <form class="foodPost" data-id="<%= foods[i]._id %>">
                   <label for="usr">Name:<span>(Required at least 2 characters)</span></label>
-                  <input type="text" class="form-control" name="name" minlength="2" required>
+                  <input type="text" class="form-control" name="name"placeholder="Write your Name" minlength="2" required>
                   <label for="comments">Comments:<span>(Required at least 10 characters)</span></label>
-                  <textarea class="form-control" name="comments" rows="3"placeholder="Write your Comments " required></textarea>
+                  <input type="text" class="form-control" name="comments" rows="3"placeholder="Write your Comments "minlength="10" required></textarea>
                   <input id="temp" type="submit" class="pull-right" value="Post!">
 
                 </form>
               </div>
               
-              <a href="<%= foods[i].f2f_url %>" target="_blank">
+              <!-- <a href="<%= foods[i].f2f_url %>" target="_blank">
               <h4>Recipes</h4>
-              </a>
+              </a> -->
               <ul id="<%= foods[i]._id%>"> 
                <% for(var z=0; z< foods[i].comments.length; z++) {  %>
                   <li>
