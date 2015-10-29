@@ -49,10 +49,12 @@
               <!-- <a href="<%= foods[i].f2f_url %>" target="_blank">
               <h4>Recipes</h4>
               </a> -->
+              <br>
               <ul id="<%= foods[i]._id%>"> 
                <% for(var z=0; z< foods[i].comments.length; z++) {  %>
                   <li>
                       <span class="foodName"><%= foods[i].comments[z].name %></span>
+                      <br>
                       <span class="foodComment"><%= foods[i].comments[z].comments %></span>
                   </li>
                <% } %>
