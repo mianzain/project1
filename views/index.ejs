@@ -50,15 +50,15 @@
               <h4>Recipes</h4>
               </a> -->
               <br>
-              <ul id="<%= foods[i]._id%>"> 
+              <div id="<%= foods[i]._id%>"> 
                <% for(var z=0; z< foods[i].comments.length; z++) {  %>
-                  <li>
+                  <div class="comment-div">
                       <span class="foodName"><%= foods[i].comments[z].name %></span>
                       <br>
                       <span class="foodComment"><%= foods[i].comments[z].comments %></span>
-                  </li>
+                  </div>
                <% } %>
-              </ul>
+              </div>
               
             </div>
           </div>
