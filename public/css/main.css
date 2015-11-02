@@ -28,12 +28,15 @@ body {
 li { list-style-type: none; }
 
 .foodName { 
-  color: blue;
+  color: darkblue;
   font-weight: bold;
-  font-family: garamond
+ /* font-family: garamond;*/
+  font-family: 'Open Sans', sans-serif;
 }
 .foodComment { color: black;
-font-family:times 
+/*font-family:times */
+/*font-family: 'Indie Flower', cursive;*/
+font-family: 'Open Sans', sans-serif;
 }
 .comment-div {
   border: 1px solid lightgrey;
