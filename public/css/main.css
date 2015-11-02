@@ -5,16 +5,14 @@ h4 {
   font-size: 20px;
 }
 h1 {
-margin-left: auto;
-    margin-right: auto;
-
-    width: 4.5em;
-    font-size: 70px;
-    font-family:Courier;
-font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4.5em;
+  font-size: 70px;
+  font-family:Courier;
+  font-weight: bold;
 }	
 	 
-
 body {
     background-color: ;
 }
@@ -36,4 +34,11 @@ li { list-style-type: none; }
 }
 .foodComment { color: black;
 font-family:times 
+}
+.comment-div {
+  border: 1px solid lightgrey;
+  padding-left: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #EFEFEF;
 }
